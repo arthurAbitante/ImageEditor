@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
@@ -15,15 +15,12 @@
         <label for="tamanho">Tamanho</label>
 
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-secondary active">
-          <input type="radio" name="options" id="option1" autocomplete="off" checked> 10x15
-        </label>
-        <label class="btn btn-secondary">
-          <input type="radio" name="options" id="option2" autocomplete="off"> 12x15
-        </label>
-        <label class="btn btn-secondary">
-          <input type="radio" name="options" id="option3" autocomplete="off"> 13x18
-        </label>
+        <button type="button" class="btn btn-secondary" name="option1" id="option1" autocomplete="off">10x15</button>
+        <button type="button" class="btn btn-secondary" name="option2" id="option2" autocomplete="off"> 12x15</button>
+        <button type="button" class="btn btn-secondary" name="option3" id="option3" autocomplete="off"> 13x18 </button>
+        <input hidden id="altura"/>
+        <input hidden id="largura"/>
+
       </div>
     </div>
     <div class="form-group">
@@ -45,7 +42,7 @@
 
     <div class="form-group">
         <label for="imagem">Imagem</label>
-        <input type="file" class="form-control-file" id="imagem" onClick="imageIsLoaded()">
+        <input type="file" class="form-control-file" id="imagem">
     </div>
 
 </form>
@@ -55,7 +52,7 @@
       <br>
 
       <!-- height e width será ajustado a partir do ajuste do tamanho, assim como o filtro -->
-      <img alt="Imagem" id="#myImg" src="#" height=200 width=100>
+      <img alt="Imagem" id="#myImg" src="#" >
 
 
 
@@ -78,29 +75,87 @@
     <!-- sera utilizada uma requisição ajax e será feito um controller no symfony -->
 
     <script type="text/javascript">
-/*$(function () {
-    $(":file").change(function () {
+    //aparecer imagem
+    window.addEventListener('load', function() {
+      document.querySelector('input[type="file"]').addEventListener('change', function() {
         if (this.files && this.files[0]) {
-            var reader = new FileReader();
-            reader.onload = imageIsLoaded;
-            reader.readAsDataURL(this.files[0]);
-        }
-    });
-});*/
-
-window.addEventListener('load', function() {
-  document.querySelector('input[type="file"]').addEventListener('change', function() {
-      if (this.files && this.files[0]) {
           var img = document.querySelector('img');  // $('img')[0]
           img.src = URL.createObjectURL(this.files[0]); // set src to blob url
           img.onload = imageIsLoaded;
-      }
-  });
-});
+        }
+      });
+    });
 
-/*function imageIsLoaded(e) {
-    $('#myImg').attr('src', e.target.result);
-};*/
+    function imageIsLoaded(e) {
+      console.log("this works");  
+    };
+
+    $('#option1').on('click', function(){
+        $('#myImg').css('width' , 1772);        
+        $('#myImg').css('height', 1181);        
+
+      });
+      $('#option2').on('click', function(){
+        $('#myImg').css('width', 1772);
+        $('#myImg').css('height' ,1417);
+
+      });
+      $('#option3').on('click', function(){
+
+        $('#myImg').css('width', 2126);
+        $('#myImg').css( 'height', 1535);
+
+      });
+
+
+    $(document).ready(function(){
+
+      $('#option1').on('click', function(){
+    //10x15
+        console.log("opçao 1");
+        $('#myImg').css('width' , 1772);        
+        $('#myImg').css('height', 1181);        
+
+      });
+      $('#option2').on('click', function(){
+        // $('#largura').val(1417);
+        // $('#altura').val(1772);
+        console.log('opcao 2');
+        $('#myImg').css('width', 1772);
+        $('#myImg').css('height' ,1417);
+
+      });
+      $('#option3').on('click', function(){
+        // $('#largura').val(1535);
+        // $('#altura').val(2126);  
+        console.log("opçao 3");
+
+        $('#myImg').css('width', 2126);
+        $('#myImg').css( 'height', 1535);
+
+      });
+
+
+      console.log($('#myImg').width);
+
+
+      
+
+
+    });
+
+
+    var imgbj=document.getElementById("myImg");
+    imgbj.width=200;
+    imgbj.height=200;
+
+
+
+
+
+
+
+
 
 
     </script>
