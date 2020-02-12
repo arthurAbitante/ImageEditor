@@ -4,4 +4,21 @@ E em Abas, poderá inserir o valor por tamanho e tudo dando o resultado com valo
 
 Esse editor simples de imagens está pronto para receber uma requisição Ajax e ser inserida em funcionalidades de linguagens WEB como no PHP, também podendo ser utilizados em frameworks como Symfony e Laravel. 
 
- 
+Todos os dados de filtros podem ser adicionados em uma coluna de filtros de uma unica tabela. A cada movimento do filtro é inserido em um array, contendo todos os filtros que estão sendo utilizados na imagem com suas categorias.
+
+A tabela do banco de dados pode ser organizada assim:
+
+
+|  Foto  |
+----------
+
+idFoto
+tamanhoFoto (text)
+filtros (text)
+dir (text)
+preço (double)
+quantidate (integer)
+
+
+Este projeto está pronto para ser finalizado utilizando um framework ou linguagem pura de programação WEb.
+
