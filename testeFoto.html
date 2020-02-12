@@ -9,6 +9,8 @@
 <body>
 
 
+  <div class="container">
+
     <!--  radio  -->
 <form>
     <div class="form-group">
@@ -24,14 +26,45 @@
       </div>
     </div>
     <div class="form-group">
-        <label for="filtro">Filtro</label>
-        <select multiple class="form-control" id="filtro">
-          <option> Filtro 1</option>
-          <option> Filtro 2</option>
-          <option> Filtro 3</option>
-          <option> Filtro 4</option>
-          <option> Filtro 5</option>
-        </select>
+        <h3 for="filtro">Filtros</h3>
+
+
+        <label for="filtro1">Blur</label>
+        <input type="range" min="0" max="100" value="0" class="custom-range" id="filtro1">
+
+        <label for="filtro2">Brightness</label>
+        <input type="range" min="0" max="100" value="0" class="custom-range" id="filtro2">
+
+        <label for="filtro3">Contrast</label>
+        <input type="range" min="0" max="100" value="0" class="custom-range" id="filtro3">
+
+        <label for="filtro4">Drop-Shadow</label>
+        <input type="range" min="0" max="100" value="0" class="custom-range" id="filtro4">
+
+        <label for="filtro5">Grayscale</label>
+        <input type="range" min="0" max="100" value="0" class="custom-range" id="filtro5">
+
+        <label for="filtro6">Hue-Rotate</label>
+        <input type="range" min="0" max="100" value="0" class="custom-range" id="filtro6">
+
+        <label for="filtro7">Contrast</label>
+        <input type="range" min="0" max="100" value="0" class="custom-range" id="filtro7">
+
+        <label for="filtro8">Invert</label>
+        <input type="range" min="0" max="100" value="0" class="custom-range" id="filtro8">
+
+        <label for="filtro9">Opacity</label>
+        <input type="range" min="0" max="100" value="0" class="custom-range" id="filtro9">
+
+        <label for="filtro10">Saturate</label>
+        <input type="range" min="0" max="100" value="0" class="custom-range" id="filtro10">
+
+        <label for="filtro11">Sepia</label>
+        <input type="range" min="0" max="100" value="0" class="custom-range" id="filtro11">
+
+        <label for="filtro12">Url</label>
+        <input type="range" min="0" max="100" value="0" class="custom-range" id="filtro12">
+
     </div>
 
     <div class="form-group">
@@ -52,23 +85,54 @@
       <br>
 
       <!-- height e width será ajustado a partir do ajuste do tamanho, assim como o filtro -->
-      <img alt="Imagem" id="#myImg" src="#" >
+      <img alt="Imagem" id="myImg" src="#" >
+
+      <br>
+      <br>
+
+      <br>
+      <br>
+      <br>
+
+
+
+        <h3>Preço por tamanho</h3>
+        <ul class="nav nav-tabs">
+          <li><a data-toggle="tab" class="btn btn-secondary" href="#menu1">10x15</a></li>
+          <li><a data-toggle="tab" class="btn btn-secondary"  href="#menu2">12x15</a></li>
+          <li><a data-toggle="tab" class="btn btn-secondary" href="#menu3">13x18</a></li>
+        </ul>
+      
+        <div class="tab-content">
+          <div id="menu1" class="tab-pane fade">
+            <h5>Valor</h5>
+            <form>
+              <input type="text" class="form-control mb-2 mr-sm-2" id="preco-1">
+            </form>
+          </div>
+
+          <div id="menu2" class="tab-pane fade">
+            <h5>Valor</h5>
+            <form>
+              <input type="text" class="form-control mb-2 mr-sm-2" id="preco-2">
+            </form>
+          </div>
+          <div id="menu3" class="tab-pane fade">
+            <h5>Valor</h5>
+            <form>
+              <input type="text" class="form-control mb-2 mr-sm-2" id="preco-3">
+            </form>
+          </div>
+        </div>
 
 
 
 
-    <!--
-
-        inserir uma imagem para em tempo real mostrar seu desenvolvimento
-
-    -->
-
-
-
+      </div>
 
     <!--  antes deve possuir um botao que pede para fazer orçamento  -->
 
-    <!-- inserir preço utilizando um spinner ou combobox ou input-->
+    <!-- inserir preço utilizando input com mascara de dinheiro-->
     <!--  a baixo possuir os botões radio do tamanho   -->
     <!--  na primeira vez insere um valor ele cadastra automaticamente (quanto aperta enter e envia uma mensagem que foi cadastrado) apos cadastrar a primeira vez passa a usar uma função de editar e sempre é mostrado o valor cadastrado -->
     <!-- cada radio possui um valor diferente ou igual  -->
@@ -90,72 +154,74 @@
       console.log("this works");  
     };
 
-    $('#option1').on('click', function(){
-        $('#myImg').css('width' , 1772);        
-        $('#myImg').css('height', 1181);        
-
-      });
-      $('#option2').on('click', function(){
-        $('#myImg').css('width', 1772);
-        $('#myImg').css('height' ,1417);
-
-      });
-      $('#option3').on('click', function(){
-
-        $('#myImg').css('width', 2126);
-        $('#myImg').css( 'height', 1535);
-
-      });
 
 
     $(document).ready(function(){
 
+
+      //Tamanho----------------------------------
       $('#option1').on('click', function(){
-    //10x15
-        console.log("opçao 1");
+
         $('#myImg').css('width' , 1772);        
         $('#myImg').css('height', 1181);        
 
       });
       $('#option2').on('click', function(){
-        // $('#largura').val(1417);
-        // $('#altura').val(1772);
-        console.log('opcao 2');
         $('#myImg').css('width', 1772);
         $('#myImg').css('height' ,1417);
-
       });
       $('#option3').on('click', function(){
-        // $('#largura').val(1535);
-        // $('#altura').val(2126);  
-        console.log("opçao 3");
-
         $('#myImg').css('width', 2126);
         $('#myImg').css( 'height', 1535);
-
       });
 
+      //-------------------------------
 
-      console.log($('#myImg').width);
+      //filtro------------------------------------
 
 
-      
+ 
+
+      $('#filtro1').on('change', function(){
+
+      });
+      $('#filtro2').on('change', function(){
+        
+      });
+      $('#filtro3').on('change', function(){
+        
+      });
+      $('#filtro4').on('change', function(){
+        
+      });
+      $('#filtro5').on('change', function(){
+        
+      });
+      $('#filtro6').on('change', function(){
+        
+      });
+      $('#filtro7').on('change', function(){
+        
+      });
+      $('#filtro8').on('change', function(){
+        
+      });
+      $('#filtro9').on('change', function(){
+        
+      });
+      $('#filtro10').on('change', function(){
+        
+      });
+      $('#filtro11').on('change', function(){
+        
+      });
+      $('#filtro12').on('change', function(){
+        
+      });
+
 
 
     });
-
-
-    var imgbj=document.getElementById("myImg");
-    imgbj.width=200;
-    imgbj.height=200;
-
-
-
-
-
-
-
-
 
 
     </script>
