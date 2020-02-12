@@ -30,40 +30,37 @@
 
 
         <label for="filtro1">Blur</label>
-        <input type="range" min="0" max="100" value="0" class="custom-range" id="filtro1">
+        <input type="range" min="0" max="100" step="1" value="100" class="custom-range" id="filtro1">
 
         <label for="filtro2">Brightness</label>
-        <input type="range" min="0" max="100" value="0" class="custom-range" id="filtro2">
+        <input type="range" min="0" max="100" step="1" value="100" class="custom-range" id="filtro2">
 
         <label for="filtro3">Contrast</label>
-        <input type="range" min="0" max="100" value="0" class="custom-range" id="filtro3">
+        <input type="range" min="0" max="100" step="1" value="100" class="custom-range" id="filtro3">
 
         <label for="filtro4">Drop-Shadow</label>
-        <input type="range" min="0" max="100" value="0" class="custom-range" id="filtro4">
+        <input type="range" min="0" max="100" step="1" value="100" class="custom-range" id="filtro4">
 
         <label for="filtro5">Grayscale</label>
-        <input type="range" min="0" max="100" value="0" class="custom-range" id="filtro5">
+        <input type="range" min="0" max="100" step="1" value="100" class="custom-range" id="filtro5">
 
         <label for="filtro6">Hue-Rotate</label>
-        <input type="range" min="0" max="100" value="0" class="custom-range" id="filtro6">
+        <input type="range" min="0" max="100" step="1" value="100" class="custom-range" id="filtro6">
 
-        <label for="filtro7">Contrast</label>
-        <input type="range" min="0" max="100" value="0" class="custom-range" id="filtro7">
+        <label for="filtro7">Invert</label>
+        <input type="range" min="0" max="100" step="1" value="100" class="custom-range" id="filtro7">
 
-        <label for="filtro8">Invert</label>
-        <input type="range" min="0" max="100" value="0" class="custom-range" id="filtro8">
+        <label for="filtro8">Opacity</label>
+        <input type="range" min="0" max="100" step="1" value="100" class="custom-range" id="filtro8">
 
-        <label for="filtro9">Opacity</label>
-        <input type="range" min="0" max="100" value="0" class="custom-range" id="filtro9">
+        <label for="filtro9">Saturate</label>
+        <input type="range" min="0" max="100" step="1" value="100" class="custom-range" id="filtro9">
 
-        <label for="filtro10">Saturate</label>
-        <input type="range" min="0" max="100" value="0" class="custom-range" id="filtro10">
+        <label for="filtro10">Sepia</label>
+        <input type="range" min="0" max="100" step="1" value="100" class="custom-range" id="filtro10">
 
-        <label for="filtro11">Sepia</label>
-        <input type="range" min="0" max="100" value="0" class="custom-range" id="filtro11">
-
-        <label for="filtro12">Url</label>
-        <input type="range" min="0" max="100" value="0" class="custom-range" id="filtro12">
+        <label for="filtro11">Url</label>
+        <input type="range" min="0" max="100" step="1" value="100" class="custom-range" id="filtro11">
 
     </div>
 
@@ -183,41 +180,44 @@
  
 
       $('#filtro1').on('change', function(){
-
+        $('#myImg').css('filter', "blur("+$('#filtro1').val()+"%)");
       });
       $('#filtro2').on('change', function(){
-        
+        $('#myImg').css('filter', "brightness("+$('#filtro2').val()+"%)");
       });
       $('#filtro3').on('change', function(){
-        
+        $('#myImg').css('filter', "contrast("+$('#filtro3').val()+"%)");
       });
       $('#filtro4').on('change', function(){
-        
+        $('#myImg').css('filter', "drop-shadow("+$('#filtro4').val()+"%)");
       });
       $('#filtro5').on('change', function(){
-        
+        $('#myImg').css('filter', "grayscale("+$('#filtro5').val()+"%)");
       });
       $('#filtro6').on('change', function(){
-        
+        $('#myImg').css('filter', "hue-rotate("+$('#filtro6').val()+"%)");
       });
       $('#filtro7').on('change', function(){
-        
+        $('#myImg').css('filter', "invert("+$('#filtro7').val()+"%)");
       });
       $('#filtro8').on('change', function(){
-        
+        $('#myImg').css('filter', "opacity("+$('#filtro8').val()+"%)");
       });
       $('#filtro9').on('change', function(){
-        
+        $('#myImg').css('filter', "saturate("+$('#filtro9').val()+"%)");
       });
       $('#filtro10').on('change', function(){
-        
+        $('#myImg').css('filter', "sepia("+$('#filtro10').val()+"%)");
       });
       $('#filtro11').on('change', function(){
-        
+        $('#myImg').css('filter', "url("+$('#filtro11').val()+"%)");
       });
-      $('#filtro12').on('change', function(){
-        
-      });
+
+
+
+
+
+
 
 
 
