@@ -9,12 +9,18 @@
 <body>
 
 
-  <div class="container">
+  <div class="container text-center">
 
     <!--  radio  -->
-<form>
-    <div class="form-group">
-        <label for="tamanho">Tamanho</label>
+  <div class="row justify-content-center">
+
+    <br>
+    <br>
+    <div class="col-12">
+
+    <form>
+    <div class="form-group col-md-12 col-lg-2">
+        <h3 for="tamanho">Tamanho</h3>
 
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
         <button type="button" class="btn btn-secondary" name="option1" id="option1" autocomplete="off">10x15</button>
@@ -25,7 +31,7 @@
 
       </div>
     </div>
-    <div class="form-group">
+    <div class="form-group col-md-12 col-lg-6">
         <h3 for="filtro">Filtros</h3>
 
 
@@ -64,37 +70,42 @@
 
     </div>
 
-    <div class="form-group">
+    <div class="form-group col-md-12 col-lg-2">
       <label for="example-number-input">Quantidade</label>
         <input class="form-control" type="number" value="1" id="example-number-input">
     </div>
 
 
-    <div class="form-group">
-        <label for="imagem">Imagem</label>
+    <div class="form-group col-md-12">
         <input type="file" class="form-control-file" id="imagem">
     </div>
 
 </form>
+</div>
       <br>
       <br>
       <br>
       <br>
 
       <!-- height e width será ajustado a partir do ajuste do tamanho, assim como o filtro -->
-      <img alt="Imagem" id="myImg" src="#" >
+      <div class="row justify-content-center">
+
+
+      <img  id="myImg"  >
+
 
       <br>
       <br>
-
-      <br>
-      <br>
       <br>
 
 
+      </div>
 
+
+      <div class="row">
+        <div class="col-12 text-center">
         <h3>Preço por tamanho</h3>
-        <ul class="nav nav-tabs">
+        <ul class="nav nav-tabs col-md-12">
           <li><a data-toggle="tab" class="btn btn-secondary" href="#menu1">10x15</a></li>
           <li><a data-toggle="tab" class="btn btn-secondary"  href="#menu2">12x15</a></li>
           <li><a data-toggle="tab" class="btn btn-secondary" href="#menu3">13x18</a></li>
@@ -105,6 +116,7 @@
             <h5>Valor</h5>
             <form>
               <input type="text" class="form-control mb-2 mr-sm-2" id="preco-1">
+              <button type ="submit" id="preco1">Cadastrar</button>
             </form>
           </div>
 
@@ -112,17 +124,22 @@
             <h5>Valor</h5>
             <form>
               <input type="text" class="form-control mb-2 mr-sm-2" id="preco-2">
+              <button type ="submit" id="preco2">Cadastrar</button>
+
             </form>
           </div>
           <div id="menu3" class="tab-pane fade">
             <h5>Valor</h5>
             <form>
               <input type="text" class="form-control mb-2 mr-sm-2" id="preco-3">
+              <button type ="submit" id="preco3">Cadastrar</button>
+
             </form>
           </div>
         </div>
-
-
+      </div>
+    </div>
+    </div>
 
 
       </div>
@@ -130,9 +147,8 @@
     <!--  antes deve possuir um botao que pede para fazer orçamento  -->
 
     <!-- inserir preço utilizando input com mascara de dinheiro-->
-    <!--  a baixo possuir os botões radio do tamanho   -->
     <!--  na primeira vez insere um valor ele cadastra automaticamente (quanto aperta enter e envia uma mensagem que foi cadastrado) apos cadastrar a primeira vez passa a usar uma função de editar e sempre é mostrado o valor cadastrado -->
-    <!-- cada radio possui um valor diferente ou igual  -->
+    <!-- cada aba possui um valor diferente ou igual  -->
     <!-- sera utilizada uma requisição ajax e será feito um controller no symfony -->
 
     <script type="text/javascript">
@@ -175,47 +191,163 @@
       //-------------------------------
 
       //filtro------------------------------------
+      //depois analisar os erros
+      let valorFiltro = [];
 
-
- 
+      
 
       $('#filtro1').on('change', function(){
         $('#myImg').css('filter', "blur("+$('#filtro1').val()+"%)");
+        valorFiltro.push([$('#filtro1').val(), "blur"]);
+
+        for(var i=0; i< valorFiltro.length; i++){
+          if(valorFiltro[i].indexOf("blur") !== -1){
+            valorFiltro.splice(i, 1) 
+            valorFiltro[i] = [$('#filtro1').val(), "blur"];
+          }
+        }
+       // if(valorFiltro.indexOf("blur") !== -1){
+          
+        console.log(valorFiltro);
+
+
       });
       $('#filtro2').on('change', function(){
         $('#myImg').css('filter', "brightness("+$('#filtro2').val()+"%)");
+        valorFiltro.push([$('#filtro2').val(), "brightness"]);
+        for(var i=0; i< valorFiltro.length; i++){
+          if(valorFiltro[i].indexOf("brightness") !== -1){
+            valorFiltro.splice(i, 1) 
+            valorFiltro[i] = [$('#filtro2').val(), "brightness"];
+          }
+        }
+
+        console.log(valorFiltro);
+
       });
       $('#filtro3').on('change', function(){
         $('#myImg').css('filter', "contrast("+$('#filtro3').val()+"%)");
+        valorFiltro.push([$('#filtro3').val(), "contrast"]);
+
+        for(var i=0; i< valorFiltro.length; i++){
+          if(valorFiltro[i].indexOf("contrast") !== -1){
+            valorFiltro.splice(i, 1) 
+            valorFiltro[i] = [$('#filtro3').val(), "contrast"];
+          }
+        }
+        console.log(valorFiltro);
+
       });
       $('#filtro4').on('change', function(){
         $('#myImg').css('filter', "drop-shadow("+$('#filtro4').val()+"%)");
+        valorFiltro.push([$('#filtro4').val(), "drop-shadow"]);
+        for(var i=0; i< valorFiltro.length; i++){
+          if(valorFiltro[i].indexOf("drop-shadow") !== -1){
+            valorFiltro.splice(i, 1) 
+            valorFiltro[i] = [$('#filtro4').val(), "drop-shadow"];
+          }
+        }
+
+        console.log(valorFiltro);
+
       });
       $('#filtro5').on('change', function(){
         $('#myImg').css('filter', "grayscale("+$('#filtro5').val()+"%)");
+        valorFiltro.push([$('#filtro5').val(), "grayscale"]);
+
+        for(var i=0; i< valorFiltro.length; i++){
+          if(valorFiltro[i].indexOf("grayscale") !== -1){
+            valorFiltro.splice(i, 1) 
+            valorFiltro[i] = [$('#filtro5').val(), "grayscale"];
+          }
+        }
+
+        console.log(valorFiltro);
+
       });
       $('#filtro6').on('change', function(){
         $('#myImg').css('filter', "hue-rotate("+$('#filtro6').val()+"%)");
+        valorFiltro.push([$('#filtro6').val(), "hue-rotate"]);
+        for(var i=0; i< valorFiltro.length; i++){
+          if(valorFiltro[i].indexOf("hue-rotate") !== -1){
+            valorFiltro.splice(i, 1) 
+            valorFiltro[i] = [$('#filtro6').val(), "hue-rotate"];
+          }
+        }
+        console.log(valorFiltro);
+
       });
       $('#filtro7').on('change', function(){
         $('#myImg').css('filter', "invert("+$('#filtro7').val()+"%)");
+        valorFiltro.push([$('#filtro7').val(), "invert"]);
+        for(var i=0; i< valorFiltro.length; i++){
+          if(valorFiltro[i].indexOf("invert") !== -1){
+            valorFiltro.splice(i, 1) 
+            valorFiltro[i] = [$('#filtro7').val(), "invert"];
+          }
+        }
+        console.log(valorFiltro);
+
       });
       $('#filtro8').on('change', function(){
         $('#myImg').css('filter', "opacity("+$('#filtro8').val()+"%)");
+        valorFiltro.push([$('#filtro8').val(), "opacity"]);
+        for(var i=0; i< valorFiltro.length; i++){
+          if(valorFiltro[i].indexOf("opacity") !== -1){
+            valorFiltro.splice(i, 1) 
+            valorFiltro[i] = [$('#filtro8').val(), "opacity"];
+          }
+        }
+
+        console.log(valorFiltro);
+
       });
       $('#filtro9').on('change', function(){
         $('#myImg').css('filter', "saturate("+$('#filtro9').val()+"%)");
+        valorFiltro.push([$('#filtro9').val(), "saturate"]);
+        for(var i=0; i< valorFiltro.length; i++){
+          if(valorFiltro[i].indexOf("saturate") !== -1){
+            valorFiltro.splice(i, 1) 
+            valorFiltro[i] = [$('#filtro9').val(), "saturate"];
+          }
+        }
+
+        console.log(valorFiltro);
+
       });
       $('#filtro10').on('change', function(){
         $('#myImg').css('filter', "sepia("+$('#filtro10').val()+"%)");
+        valorFiltro.push([$('#filtro10').val(), "sepia"]);
+        for(var i=0; i< valorFiltro.length; i++){
+          if(valorFiltro[i].indexOf("sepia") !== -1){
+            valorFiltro.splice(i, 1) 
+            valorFiltro[i] = [$('#filtro10').val(), "sepia"];
+          }
+        }
+
+        console.log(valorFiltro);
+
       });
       $('#filtro11').on('change', function(){
         $('#myImg').css('filter', "url("+$('#filtro11').val()+"%)");
+        valorFiltro.push([$('#filtro11').val(), "url"]);
+        for(var i=0; i< valorFiltro.length; i++){
+          if(valorFiltro[i].indexOf("url") !== -1){
+            valorFiltro.splice(i, 1) 
+            valorFiltro[i] = [$('#filtro11').val(), "url"];
+          }
+        }
+        console.log(valorFiltro);
+
       });
-
-
-
-
+     // console.log(valorFiltro);
+     for(var i=0; i< valorFiltro.length; i++){
+          if(valorFiltro[i].indexOf("blur") !== -1){
+            valorFiltro.splice(i, 1) 
+            valorFiltro[i] = [$('#filtro1').val(), "blur"];
+          }
+        }
+      //------------------------requisição ajax
 
 
 
